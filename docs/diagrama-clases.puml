@@ -1,0 +1,90 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+
+package MVC {
+  class ConsoleView
+  class UserController
+  class SubscriptionController
+  class PaymentController
+}
+
+package Services {
+  class UserService
+  class SubscriptionService
+  class PaymentService <<Subject>>
+  interface IPaymentProcessor
+  class CreditCardPaymentProcessor
+}
+
+package Repositories {
+  interface IUserRepository
+  interface ISubscriptionRepository
+  interface IInvoiceRepository
+  class UserRepository
+  class SubscriptionRepository
+  class InvoiceRepository
+}
+
+package Factories {
+  interface IPlanFactory
+  class PlanFactory
+  interface INotificationFactory
+  class NotificationFactory
+}
+
+package Models {
+  class User
+  abstract class Plan
+  class FreePlan
+  class PremiumPlan
+  class Subscription
+  class Invoice
+}
+
+package Observer {
+  interface "IObserver<PaymentCompletedEvent>" as IObserver
+  class NotificationObserver
+  class MetricsServiceObserver
+  class AccessControlObserver
+}
+
+class DatabaseConnection <<Singleton>>
+
+ConsoleView --> UserController
+ConsoleView --> SubscriptionController
+ConsoleView --> PaymentController
+UserController --> UserService
+SubscriptionController --> SubscriptionService
+PaymentController --> PaymentService
+
+UserService --> IUserRepository
+SubscriptionService --> IUserRepository
+SubscriptionService --> ISubscriptionRepository
+SubscriptionService --> IPlanFactory
+PaymentService --> ISubscriptionRepository
+PaymentService --> IInvoiceRepository
+PaymentService --> IPaymentProcessor
+
+UserRepository ..|> IUserRepository
+SubscriptionRepository ..|> ISubscriptionRepository
+InvoiceRepository ..|> IInvoiceRepository
+UserRepository --> DatabaseConnection
+SubscriptionRepository --> DatabaseConnection
+InvoiceRepository --> DatabaseConnection
+
+PlanFactory ..|> IPlanFactory
+NotificationFactory ..|> INotificationFactory
+CreditCardPaymentProcessor ..|> IPaymentProcessor
+FreePlan --|> Plan
+PremiumPlan --|> Plan
+Subscription --> User
+Subscription --> Plan
+Invoice --> Subscription
+
+PaymentService o--> IObserver
+NotificationObserver ..|> IObserver
+MetricsServiceObserver ..|> IObserver
+AccessControlObserver ..|> IObserver
+NotificationObserver --> INotificationFactory
+@enduml
