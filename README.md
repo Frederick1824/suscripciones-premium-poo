@@ -143,6 +143,14 @@ Acceso Premium
 
 ---
 
+## 📊 Diagrama de Clases UML
+
+El siguiente diagrama representa la arquitectura principal de NovaSub y muestra la interacción entre los patrones Factory Method, Repository, Observer, Singleton y MVC implementados en el sistema.
+
+![Diagrama UML](docs/uml/diagrama-clases.png)
+
+---
+
 ## 🛠️ Tecnologías
 
 * TypeScript
