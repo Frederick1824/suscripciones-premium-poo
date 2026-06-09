@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sistema académico de gestión de suscripciones y facturación premium desarrollado con TypeScript, POO, SOLID y patrones de diseño."
+    />
+    <meta name="theme-color" content="#080b14" />
+    <meta property="og:title" content="Sistema de Suscripciones Premium" />
+    <meta
+      property="og:description"
+      content="Arquitectura limpia con TypeScript, SOLID y patrones de diseño."
+    />
+    <meta property="og:type" content="website" />
+    <title>Sistema de Suscripciones Premium | Proyecto POO</title>
+    <link rel="stylesheet" href="/landing/styles.css" />
+    <script src="/landing/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header" data-header>
+      <div class="container nav-shell">
+        <a
+          class="brand"
+          href="#inicio"
+          aria-label="Universidad Provincial de Córdoba · Sistema de Suscripciones Premium · Ir al inicio"
+        >
+          <span class="upc-logo-shell">
+            <img
+              class="upc-logo"
+              src="/src/Assets/Images/upc/upc-logo.png"
+              alt=""
+              width="72"
+              height="48"
+            />
+          </span>
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M7 4.5h10l3 5-8 10-8-10 3-5Z" />
+              <path d="m8 9.5 4 4 4-4" />
+            </svg>
+          </span>
+          <span>
+            <strong>Sistema de Suscripciones Premium</strong>
+            <small>POO · SOLID · Patterns</small>
+          </span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          data-menu-toggle
+        >
+          <span class="sr-only">Abrir menú</span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-menu>
+          <a href="#patrones">Patrones</a>
+          <a href="#arquitectura">Arquitectura</a>
+          <a href="#solid">SOLID</a>
+          <a href="#flujo">Flujo</a>
+          <a
+            class="nav-github"
+            href="https://github.com/Frederick1824/suscripciones-premium-poo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m8 16 8-8M9 8h7v7" />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section class="hero" id="inicio">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
+        <div class="container hero-layout">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">
+              <span class="status-dot"></span>
+              Proyecto académico · Backend TypeScript
+            </div>
+            <h1 class="sr-only">
+              NovaSub · Sistema de Gestión de Suscripciones y Facturación Premium
+            </h1>
+            <div class="novasub-hero-brand">
+              <img
+                src="/src/Assets/Images/novasub/logo-novasub-icon.png"
+                alt=""
+                width="1264"
+                height="842"
+              />
+            </div>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#arquitectura">
+                Explorar arquitectura
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://github.com/Frederick1824/suscripciones-premium-poo"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Ver repositorio
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7.4A5.8 5.8 0 0 0 19.3 3 5.4 5.4 0 0 0 19.1 0S17.9-.4 15 1.5a13.4 13.4 0 0 0-6 0C6.1-.4 4.9 0 4.9 0a5.4 5.4 0 0 0-.2 3A5.8 5.8 0 0 0 3.2 7.1c0 5.8 3.5 7 6.8 7.4A4.8 4.8 0 0 0 9 18v4" />
+                  <path d="M9 19c-3 .9-3-1.5-4.2-2" />
+                </svg>
+              </a>
+            </div>
+            <ul class="hero-meta" aria-label="Características principales">
+              <li><strong>5</strong> patrones</li>
+              <li><strong>5</strong> principios SOLID</li>
+              <li><strong>100%</strong> TypeScript</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual reveal reveal-delay">
+            <div class="code-window">
+              <div class="window-bar">
+                <div class="window-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <span>payment-flow.ts</span>
+                <span class="window-state">● running</span>
+              </div>
+              <div class="code-body" aria-label="Ejemplo del flujo de pago">
+                <div><i>01</i><code><b>const</b> payment = <b>new</b> PaymentService(...);</code></div>
+                <div><i>02</i><code></code></div>
+                <div><i>03</i><code>payment.<em>attach</em>(notificationObserver);</code></div>
+                <div><i>04</i><code>payment.<em>attach</em>(metricsObserver);</code></div>
+                <div><i>05</i><code>payment.<em>attach</em>(accessObserver);</code></div>
+                <div><i>06</i><code></code></div>
+                <div class="active-line"><i>07</i><code>payment.<strong>processPayment</strong>(subscription.id);</code></div>
+              </div>
+              <div class="terminal-output">
+                <span>PAYMENT_APPROVED</span>
+                <p>Invoice generated · Observers notified · Access active</p>
+              </div>
+            </div>
+            <div class="floating-badge badge-solid">
+              <span>S</span>
+              <div><strong>SOLID</strong><small>by design</small></div>
+            </div>
+            <div class="floating-badge badge-tests">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m5 12 4 4L19 6" />
+              </svg>
+              <div><strong>4/4 tests</strong><small>passing</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-patterns" id="patrones">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <span class="section-kicker">01 · Diseño orientado a objetos</span>
+              <h2>Patrones con un propósito concreto</h2>
+            </div>
+            <p>
+              Cada patrón resuelve una responsabilidad real del dominio y
+              evita dependencias innecesarias entre componentes.
+            </p>
+          </div>
+
+          <div class="patterns-grid">
+            <article class="pattern-card reveal">
+              <div class="pattern-top">
+                <span class="pattern-number">01</span>
+                <span class="pattern-type">Creacional</span>
+              </div>
+              <div class="pattern-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <ellipse cx="12" cy="5" rx="8" ry="3" />
+                  <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5" />
+                  <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" />
+                </svg>
+              </div>
+              <h3>Singleton</h3>
+              <p>
+                <code>DatabaseConnection</code> garantiza una única instancia
+                compartida para almacenar usuarios, suscripciones y facturas
+                en memoria.
+              </p>
+              <span class="pattern-class">DatabaseConnection.getInstance()</span>
+            </article>
+
+            <article class="pattern-card reveal">
+              <div class="pattern-top">
+                <span class="pattern-number">02</span>
+                <span class="pattern-type">Creacional</span>
+              </div>
+              <div class="pattern-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3v6M5.5 6.5l4.2 4.2M18.5 6.5l-4.2 4.2" />
+                  <rect x="8" y="9" width="8" height="6" rx="1.5" />
+                  <path d="M5 21v-3h4v3M15 21v-3h4v3M12 15v3" />
+                </svg>
+              </div>
+              <h3>Factory Method</h3>
+              <p>
+                <code>PlanFactory</code> y <code>NotificationFactory</code>
+                crean implementaciones según el contexto sin exponer la lógica
+                de construcción al cliente.
+              </p>
+              <span class="pattern-class">Plan · Email · SMS · Push</span>
+            </article>
+
+            <article class="pattern-card reveal">
+              <div class="pattern-top">
+                <span class="pattern-number">03</span>
+                <span class="pattern-type">Estructural</span>
+              </div>
+              <div class="pattern-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                  <circle cx="7" cy="7" r="1" />
+                  <circle cx="17" cy="12" r="1" />
+                  <circle cx="10" cy="17" r="1" />
+                </svg>
+              </div>
+              <h3>Repository</h3>
+              <p>
+                Las interfaces aíslan la lógica de negocio del almacenamiento,
+                permitiendo sustituir la persistencia sin modificar servicios
+                ni controladores.
+              </p>
+              <span class="pattern-class pattern-class-wrap">IUserRepository · ISubscriptionRepository · IInvoiceRepository</span>
+            </article>
+
+            <article class="pattern-card reveal">
+              <div class="pattern-top">
+                <span class="pattern-number">04</span>
+                <span class="pattern-type">Comportamiento</span>
+              </div>
+              <div class="pattern-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="6" r="3" />
+                  <circle cx="5" cy="18" r="2.5" />
+                  <circle cx="12" cy="18" r="2.5" />
+                  <circle cx="19" cy="18" r="2.5" />
+                  <path d="M12 9v3M5 15v-2h14v2" />
+                </svg>
+              </div>
+              <h3>Observer</h3>
+              <p>
+                <code>PaymentService</code> emite el evento de pago exitoso.
+                Notificaciones, métricas y acceso premium reaccionan de forma
+                independiente.
+              </p>
+              <span class="pattern-class">3 observers desacoplados</span>
+            </article>
+
+            <article class="pattern-card pattern-card-wide reveal">
+              <div class="pattern-top">
+                <span class="pattern-number">05</span>
+                <span class="pattern-type">Arquitectónico</span>
+              </div>
+              <div class="mvc-content">
+                <div>
+                  <div class="pattern-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="4" width="7" height="6" rx="1" />
+                      <rect x="14" y="4" width="7" height="6" rx="1" />
+                      <rect x="8.5" y="15" width="7" height="5" rx="1" />
+                      <path d="M6.5 10v2.5H12V15M17.5 10v2.5H12" />
+                    </svg>
+                  </div>
+                  <h3>Model · View · Controller</h3>
+                  <p>
+                    Separa los datos, la presentación y la coordinación del
+                    flujo para mantener una estructura clara, testeable y
+                    escalable.
+                  </p>
+                </div>
+                <div class="mvc-pills">
+                  <span><b>M</b> Models & Services</span>
+                  <span><b>V</b> ConsoleView</span>
+                  <span><b>C</b> Controllers</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section architecture" id="arquitectura">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <span class="section-kicker">02 · Arquitectura</span>
+              <h2>Capas que colaboran, responsabilidades que no se mezclan</h2>
+            </div>
+            <p>
+              El flujo avanza desde la interfaz hacia el dominio y la
+              persistencia mediante contratos explícitos.
+            </p>
+          </div>
+
+          <div class="architecture-board reveal">
+            <div class="arch-rail">
+              <span>Entrada</span>
+              <div></div>
+              <span>Dominio</span>
+              <div></div>
+              <span>Datos</span>
+            </div>
+
+            <div class="arch-layers">
+              <article class="arch-layer layer-view">
+                <div class="layer-label">
+                  <span>01</span>
+                  <div><strong>View</strong><small>Presentación</small></div>
+                </div>
+                <div class="layer-items">
+                  <code>ConsoleView</code>
+                  <p>Muestra resultados del flujo y mantiene la interfaz fuera de la lógica.</p>
+                </div>
+              </article>
+
+              <div class="layer-arrow" aria-hidden="true">↓</div>
+
+              <article class="arch-layer layer-controller">
+                <div class="layer-label">
+                  <span>02</span>
+                  <div><strong>Controllers</strong><small>Coordinación</small></div>
+                </div>
+                <div class="layer-items layer-items-tags">
+                  <code>UserController</code>
+                  <code>SubscriptionController</code>
+                  <code>PaymentController</code>
+                </div>
+              </article>
+
+              <div class="layer-arrow" aria-hidden="true">↓</div>
+
+              <article class="arch-layer layer-services">
+                <div class="layer-label">
+                  <span>03</span>
+                  <div><strong>Services</strong><small>Reglas de negocio</small></div>
+                </div>
+                <div class="layer-items layer-items-tags">
+                  <code>UserService</code>
+                  <code>SubscriptionService</code>
+                  <code>PaymentService</code>
+                </div>
+              </article>
+
+              <div class="layer-arrow" aria-hidden="true">↓</div>
+
+              <article class="arch-layer layer-repository">
+                <div class="layer-label">
+                  <span>04</span>
+                  <div><strong>Repositories</strong><small>Abstracción de datos</small></div>
+                </div>
+                <div class="layer-items">
+                  <code>IUserRepository · ISubscriptionRepository · IInvoiceRepository</code>
+                  <p>Los servicios dependen de interfaces y no de implementaciones concretas.</p>
+                </div>
+              </article>
+
+              <div class="layer-arrow" aria-hidden="true">↓</div>
+
+              <article class="arch-layer layer-database">
+                <div class="layer-label">
+                  <span>05</span>
+                  <div><strong>Database</strong><small>Persistencia en memoria</small></div>
+                </div>
+                <div class="layer-items">
+                  <code>DatabaseConnection</code>
+                  <span class="singleton-chip">Singleton instance</span>
+                </div>
+              </article>
+            </div>
+
+            <aside class="architecture-note">
+              <span class="note-icon">i</span>
+              <div>
+                <strong>Inversión de dependencias</strong>
+                <p>
+                  Las capas superiores reciben sus colaboradores mediante el
+                  constructor. El archivo <code>main.ts</code> compone el
+                  sistema como un contenedor IoC simple.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section solid-section" id="solid">
+        <div class="container">
+          <div class="solid-intro reveal">
+            <span class="section-kicker">03 · Calidad del diseño</span>
+            <h2>SOLID aplicado, no solo mencionado</h2>
+            <p>
+              Los principios se reflejan en decisiones concretas que vuelven al
+              sistema más fácil de comprender, probar y extender.
+            </p>
+          </div>
+
+          <div class="solid-grid">
+            <article class="solid-card reveal">
+              <span class="solid-letter">S</span>
+              <div>
+                <h3>Single Responsibility</h3>
+                <p>Cada clase tiene un único motivo de cambio: presentar, coordinar, procesar o persistir.</p>
+                <code>Una clase → una responsabilidad</code>
+              </div>
+            </article>
+            <article class="solid-card reveal">
+              <span class="solid-letter">O</span>
+              <div>
+                <h3>Open / Closed</h3>
+                <p>Nuevos planes, notificadores o medios de pago se incorporan mediante implementaciones.</p>
+                <code>Extender sin reescribir</code>
+              </div>
+            </article>
+            <article class="solid-card reveal">
+              <span class="solid-letter">L</span>
+              <div>
+                <h3>Liskov Substitution</h3>
+                <p><code>FreePlan</code> y <code>PremiumPlan</code> pueden utilizarse como cualquier objeto <code>Plan</code>.</p>
+                <code>Subtipos intercambiables</code>
+              </div>
+            </article>
+            <article class="solid-card reveal">
+              <span class="solid-letter">I</span>
+              <div>
+                <h3>Interface Segregation</h3>
+                <p>Repositorios, factories, observers y procesadores exponen contratos pequeños y específicos.</p>
+                <code>Interfaces enfocadas</code>
+              </div>
+            </article>
+            <article class="solid-card reveal">
+              <span class="solid-letter">D</span>
+              <div>
+                <h3>Dependency Inversion</h3>
+                <p>Servicios y controladores reciben abstracciones por constructor, facilitando tests y reemplazos.</p>
+                <code>Depender de contratos</code>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section flow-section" id="flujo">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <span class="section-kicker">04 · Caso de uso principal</span>
+              <h2>Del registro al acceso premium</h2>
+            </div>
+            <p>
+              La prueba de concepto ejecuta el recorrido completo y evidencia
+              la colaboración entre todos los patrones.
+            </p>
+          </div>
+
+          <ol class="flow-timeline">
+            <li class="flow-step reveal">
+              <span class="flow-number">01</span>
+              <div class="flow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21c.8-5 3.5-7 8-7s7.2 2 8 7" />
+                </svg>
+              </div>
+              <h3>Registro</h3>
+              <p>Se crea y persiste el usuario.</p>
+            </li>
+            <li class="flow-step reveal">
+              <span class="flow-number">02</span>
+              <div class="flow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 3h12l3 6-9 12L3 9l3-6Z" />
+                  <path d="M3 9h18M9 3l3 6 3-6" />
+                </svg>
+              </div>
+              <h3>Plan premium</h3>
+              <p>La factory construye el plan elegido.</p>
+            </li>
+            <li class="flow-step reveal">
+              <span class="flow-number">03</span>
+              <div class="flow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="4" y="4" width="16" height="16" rx="3" />
+                  <path d="M8 9h8M8 13h5" />
+                </svg>
+              </div>
+              <h3>Suscripción</h3>
+              <p>Se vincula usuario y plan.</p>
+            </li>
+            <li class="flow-step reveal">
+              <span class="flow-number">04</span>
+              <div class="flow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3 10h18M7 15h3" />
+                </svg>
+              </div>
+              <h3>Pago</h3>
+              <p>El procesador valida la operación.</p>
+            </li>
+            <li class="flow-step reveal">
+              <span class="flow-number">05</span>
+              <div class="flow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z" />
+                  <path d="M9 8h6M9 12h6" />
+                </svg>
+              </div>
+              <h3>Factura</h3>
+              <p>Se genera y guarda el comprobante.</p>
+            </li>
+            <li class="flow-step reveal">
+              <span class="flow-number">06</span>
+              <div class="flow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+                  <path d="M10 21h4" />
+                </svg>
+              </div>
+              <h3>Observers</h3>
+              <p>Se notifican tres acciones paralelas.</p>
+            </li>
+            <li class="flow-step flow-step-final reveal">
+              <span class="flow-number">07</span>
+              <div class="flow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z" />
+                  <path d="m8.5 12 2.2 2.2 4.8-5" />
+                </svg>
+              </div>
+              <h3>Acceso activo</h3>
+              <p>El usuario obtiene permisos premium.</p>
+            </li>
+          </ol>
+
+          <div class="observer-result reveal">
+            <span>Evento: <code>PaymentCompletedEvent</code></span>
+            <div>
+              <b>NotificationObserver</b>
+              <b>MetricsServiceObserver</b>
+              <b>AccessControlObserver</b>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section deliverables-section" id="entregables">
+        <div class="container deliverables-layout">
+          <div class="deliverables-copy reveal">
+            <span class="section-kicker">05 · Proyecto verificable</span>
+            <h2>Documentado, probado y listo para presentar</h2>
+            <p>
+              El repositorio incluye código organizado por capas, una prueba de
+              concepto ejecutable, documentación técnica y un diagrama de clases.
+            </p>
+
+            <div class="tech-list" aria-label="Tecnologías">
+              <span>TypeScript</span>
+              <span>Node.js</span>
+              <span>POO</span>
+              <span>SOLID</span>
+              <span>Design Patterns</span>
+              <span>Mermaid UML</span>
+              <span>Node Test Runner</span>
+              <span>Vercel</span>
+              <span>GitHub</span>
+            </div>
+
+            <a
+              class="button button-primary"
+              href="https://github.com/Frederick1824/suscripciones-premium-poo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Revisar código fuente
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7.4A5.8 5.8 0 0 0 19.3 3 5.4 5.4 0 0 0 19.1 0S17.9-.4 15 1.5a13.4 13.4 0 0 0-6 0C6.1-.4 4.9 0 4.9 0a5.4 5.4 0 0 0-.2 3A5.8 5.8 0 0 0 3.2 7.1c0 5.8 3.5 7 6.8 7.4A4.8 4.8 0 0 0 9 18v4" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="deliverables-grid">
+            <article class="deliverable-card reveal">
+              <span>01</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3" />
+                <path d="m13 11 8-8M15 3h6v6" />
+              </svg>
+              <h3>Código fuente</h3>
+              <p>Estructura modular y profesional en TypeScript.</p>
+            </article>
+            <article class="deliverable-card reveal">
+              <span>02</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 19V5M4 12h5M9 7v10M9 12h6M15 4v16M15 8h5M20 5v6" />
+              </svg>
+              <h3>Diagrama UML</h3>
+              <p>Relaciones de clases y patrones en Mermaid.</p>
+            </article>
+            <article class="deliverable-card reveal">
+              <span>03</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m7 11 3 3 7-7" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>
+              <h3>Pruebas</h3>
+              <p>Flujo principal, Singleton y extensibilidad verificados.</p>
+            </article>
+            <article class="deliverable-card reveal">
+              <span>04</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5" />
+              </svg>
+              <h3>Documentación</h3>
+              <p>README con ejecución, patrones y decisiones SOLID.</p>
+            </article>
+          </div>
+
+          <div class="project-results reveal" id="resultados">
+            <div class="results-heading">
+              <div>
+                <span class="section-kicker">Cumplimiento de la consigna</span>
+                <h3>Resultados del proyecto</h3>
+              </div>
+              <p>
+                Evidencias implementadas y verificables directamente en el
+                código fuente y las pruebas automatizadas.
+              </p>
+            </div>
+
+            <ul class="results-list">
+              <li><span aria-hidden="true">✓</span>Singleton implementado</li>
+              <li><span aria-hidden="true">✓</span>Factory Method implementado</li>
+              <li><span aria-hidden="true">✓</span>Repository Pattern implementado</li>
+              <li><span aria-hidden="true">✓</span>Observer implementado</li>
+              <li><span aria-hidden="true">✓</span>MVC implementado</li>
+              <li><span aria-hidden="true">✓</span>Principios SOLID aplicados</li>
+              <li><span aria-hidden="true">✓</span>TypeScript estricto</li>
+              <li><span aria-hidden="true">✓</span>Pruebas automatizadas exitosas</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-panel reveal">
+            <div class="cta-grid" aria-hidden="true"></div>
+            <span class="section-kicker">Arquitectura que se puede explicar</span>
+            <h2>Un proyecto académico con decisiones de ingeniería reales.</h2>
+            <p>
+              El código demuestra cómo los patrones y SOLID convierten un flujo
+              sencillo en una solución mantenible y preparada para crecer.
+            </p>
+            <a
+              class="button button-light"
+              href="https://github.com/Frederick1824/suscripciones-premium-poo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Abrir proyecto en GitHub
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m8 16 8-8M9 8h7v7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section academic-section" id="contexto-academico">
+        <div class="container">
+          <div class="academic-layout">
+            <article class="institution-card reveal">
+              <div class="institution-logo">
+                <img
+                  src="/src/Assets/Images/upc/upc-logo.png"
+                  alt="Universidad Provincial de Córdoba"
+                  width="1536"
+                  height="1024"
+                />
+              </div>
+              <div class="institution-copy">
+                <span>Institución académica</span>
+                <h3>Universidad Provincial de Córdoba</h3>
+                <p>Tecnicatura Universitaria en Programación Full Stack</p>
+                <div class="institution-tags">
+                  <strong>Programación Orientada a Objetos</strong>
+                  <strong>2026</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="academic-sheet reveal">
+              <div class="sheet-header">
+                <div>
+                  <span class="sheet-label">Ficha técnica</span>
+                  <h3>Nova Sub</h3>
+                </div>
+                <span class="sheet-status">
+                  <i aria-hidden="true"></i>
+                  Proyecto académico
+                </span>
+              </div>
+
+              <dl class="project-specs">
+                <div>
+                  <dt>Descripción</dt>
+                  <dd>Sistema de Gestión de Suscripciones y Facturación Premium</dd>
+                </div>
+                <div>
+                  <dt>Institución</dt>
+                  <dd>Universidad Provincial de Córdoba (UPC)</dd>
+                </div>
+                <div>
+                  <dt>Carrera</dt>
+                  <dd>Tecnicatura Universitaria en Programación Full Stack</dd>
+                </div>
+                <div>
+                  <dt>Materia</dt>
+                  <dd>Programación Orientada a Objetos</dd>
+                </div>
+                <div>
+                  <dt>Lenguaje</dt>
+                  <dd><code>TypeScript</code></dd>
+                </div>
+                <div>
+                  <dt>Gestión del proyecto</dt>
+                  <dd>GitHub Projects</dd>
+                </div>
+                <div>
+                  <dt>Control de versiones</dt>
+                  <dd>GitHub</dd>
+                </div>
+                <div>
+                  <dt>Arquitectura</dt>
+                  <dd>POO · SOLID · Design Patterns</dd>
+                </div>
+                <div>
+                  <dt>Ejecución</dt>
+                  <dd><code>Node.js</code></dd>
+                </div>
+                <div>
+                  <dt>Contenerización</dt>
+                  <dd>Docker</dd>
+                </div>
+                <div>
+                  <dt>Pruebas</dt>
+                  <dd>Vitest</dd>
+                </div>
+                <div>
+                  <dt>Documentación</dt>
+                  <dd>README + UML Mermaid</dd>
+                </div>
+                <div>
+                  <dt>Autor</dt>
+                  <dd>Federico Montoro</dd>
+                </div>
+                <div>
+                  <dt>Profesor</dt>
+                  <dd>Narciso Perez</dd>
+                </div>
+                <div>
+                  <dt>Año</dt>
+                  <dd><code>2026</code></dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <div class="brand footer-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M7 4.5h10l3 5-8 10-8-10 3-5Z" />
+              <path d="m8 9.5 4 4 4-4" />
+            </svg>
+          </span>
+          <span>
+            <strong>Sistema de Suscripciones Premium</strong>
+            <small>Proyecto académico de Programación Orientada a Objetos</small>
+          </span>
+        </div>
+        <div class="footer-signature">
+          <p>
+            Desarrollado por
+            <a href="#" data-fretoka-link>FreToKa</a>
+          </p>
+          <p>TypeScript · SOLID · Patrones de Diseño · <span data-year>2026</span></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
