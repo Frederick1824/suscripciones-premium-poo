@@ -1,7 +1,7 @@
 # 🚀 NovaSub
 
 <p align="center">
-  <img src="./landing/images/novasub/logo-novasub-hero.png" width="420">
+  <img src="https://raw.githubusercontent.com/Frederick1824/suscripciones-premium-poo/main/landing/images/novasub/logo-novasub-icon.png" width="420">
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@
 ## 🏛️ Contexto Académico
 
 <p align="center">
-  <img src="./landing/images/upc/upc-logo.png" width="180">
+  <img src="https://raw.githubusercontent.com/Frederick1824/suscripciones-premium-poo/main/landing/images/upc/upc-logo.png" width="180">
 </p>
 
 **Universidad Provincial de Córdoba (UPC)**
