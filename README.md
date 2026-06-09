@@ -1,43 +1,203 @@
-# Sistema de Suscripciones Premium
+# 🚀 NovaSub
 
-Prueba de concepto en TypeScript para gestionar usuarios, suscripciones y
-pagos aplicando patrones de diseño, MVC y principios SOLID.
+<p align="center">
+  <img src="./landing/images/novasub/logo-novasub-hero.png" width="420">
+</p>
 
-## Ejecutar
+<p align="center">
+  <strong>Sistema de Gestión de Suscripciones y Facturación Premium</strong>
+</p>
 
-```bash
-npm install
-npm run dev
-npm test
-npm run typecheck
+<p align="center">
+  Proyecto académico desarrollado en TypeScript aplicando Programación Orientada a Objetos, principios SOLID y patrones de diseño.
+</p>
+
+---
+
+## 🌐 Demo Online
+
+🔗 https://suscripciones-premium-poo.vercel.app/
+
+---
+
+## 🏛️ Contexto Académico
+
+<p align="center">
+  <img src="./landing/images/upc/upc-logo.png" width="180">
+</p>
+
+**Universidad Provincial de Córdoba (UPC)**
+
+**Carrera:** Tecnicatura Universitaria en Programación Full Stack
+
+**Materia:** Programación Orientada a Objetos
+
+**Profesor:** Narciso Perez
+
+**Autor:** Federico Montoro
+
+**Año:** 2026
+
+---
+
+## 🎯 Objetivo
+
+NovaSub es una prueba de concepto que simula un sistema de gestión de suscripciones premium y facturación automática.
+
+El proyecto fue diseñado para demostrar la aplicación práctica de:
+
+* Programación Orientada a Objetos
+* Principios SOLID
+* Patrones de Diseño
+* Arquitectura MVC
+* Arquitecturas desacopladas y escalables
+
+---
+
+## 🧠 Patrones Implementados
+
+### 🔹 Singleton
+
+`DatabaseConnection`
+
+Mantiene una única instancia de la base de datos en memoria.
+
+### 🔹 Factory Method
+
+* PlanFactory
+* NotificationFactory
+
+Permiten crear objetos sin acoplar la lógica de creación al cliente.
+
+### 🔹 Repository Pattern
+
+* IUserRepository
+* ISubscriptionRepository
+* IInvoiceRepository
+
+Separan la persistencia de la lógica de negocio.
+
+### 🔹 Observer
+
+PaymentService notifica automáticamente:
+
+* NotificationObserver
+* MetricsServiceObserver
+* AccessControlObserver
+
+tras cada pago exitoso.
+
+### 🔹 MVC
+
+* Models
+* Views
+* Controllers
+
+Separación clara de responsabilidades.
+
+---
+
+## ⚖️ Principios SOLID
+
+| Principio | Aplicación                                                    |
+| --------- | ------------------------------------------------------------- |
+| SRP       | Cada clase tiene una única responsabilidad                    |
+| OCP       | Nuevos planes y notificaciones sin modificar código existente |
+| LSP       | Los planes son intercambiables mediante la abstracción Plan   |
+| ISP       | Interfaces pequeñas y específicas                             |
+| DIP       | Dependencias inyectadas mediante abstracciones                |
+
+---
+
+## 🔄 Flujo del Sistema
+
+Usuario
+
+⬇
+
+Registro
+
+⬇
+
+Selección de Plan
+
+⬇
+
+Suscripción
+
+⬇
+
+Pago
+
+⬇
+
+Factura
+
+⬇
+
+Observers
+
+⬇
+
+Acceso Premium
+
+---
+
+## 🛠️ Tecnologías
+
+* TypeScript
+* Node.js
+* GitHub
+* GitHub Projects
+* Docker
+* Vercel
+* Mermaid UML
+
+---
+
+## 📂 Estructura
+
+```txt
+src/
+├── Models/
+├── Views/
+├── Controllers/
+├── Services/
+├── Repositories/
+├── Factories/
+├── Observers/
+└── Config/
 ```
 
-`npm run dev` ejecuta automáticamente el flujo solicitado: registra un usuario,
-crea un plan premium mediante una fábrica, procesa el pago, persiste la factura
-y notifica a los observadores.
+## ✅ Resultados
 
-## Patrones implementados
+* ✔ Singleton implementado
+* ✔ Factory Method implementado
+* ✔ Repository Pattern implementado
+* ✔ Observer implementado
+* ✔ MVC implementado
+* ✔ Principios SOLID aplicados
+* ✔ TypeScript estricto
+* ✔ Pruebas automatizadas exitosas
 
-- **Singleton:** `DatabaseConnection` conserva usuarios, suscripciones y
-  facturas en una única base en memoria.
-- **Factory Method:** `PlanFactory` crea planes y `NotificationFactory` elige
-  Email, SMS o Push según la preferencia del usuario.
-- **Repository:** las interfaces de repositorio aíslan la persistencia de la
-  lógica de negocio.
-- **Observer:** `PaymentService` notifica el pago completado a notificaciones,
-  métricas y control de acceso.
-- **MVC:** los controladores coordinan servicios y `ConsoleView` presenta el
-  resultado.
+---
 
-## SOLID
+## 🔗 Enlaces
 
-Cada capa tiene una responsabilidad específica. Los controladores y servicios
-reciben abstracciones por constructor. Los planes son sustituibles mediante la
-clase base `Plan`, las interfaces son pequeñas y un nuevo procesador de pago
-puede agregarse implementando `IPaymentProcessor`. Las fábricas aceptan nuevos
-creadores en su constructor, por lo que es posible sumar planes o canales sin
-modificar sus clases.
+🌐 Demo:
 
-El UML puede verse directamente en
-[docs/diagrama-clases.md](docs/diagrama-clases.md). También se incluye la fuente
-[PlantUML](docs/diagrama-clases.puml).
+https://suscripciones-premium-poo.vercel.app/
+
+📦 Repositorio:
+
+https://github.com/Frederick1824/suscripciones-premium-poo
+
+---
+
+<p align="center">
+  Desarrollado por <strong>FreToKa</strong>
+</p>
+
+<p align="center">
+  TypeScript · SOLID · Design Patterns · 2026
+</p>
